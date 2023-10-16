@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_toLeftOf="@+id/cta"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/ll"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:background="@color/dark_blue"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/iv1"
+                            android:layout_width="@dimen/_60sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/group_2844"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/ad_headline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Ask Your Dream"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="@dimen/_10ssp" />
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:singleLine="true"
+                            android:text="Discover your dreams meaning!"
+                            android:textColor="#8391A4"
+                            android:textSize="@dimen/_8ssp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ads"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/yellow"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:text="Learn more"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_10ssp" />
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</com.google.android.gms.ads.nativead.NativeAdView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DreamSpeakers"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activities.Act_privacy_policy"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".lay_loading"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Physcological"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Affirmation"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Intro2"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Meanings_subcategories"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Ask_Dream"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_List"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Update_Dream"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Add_Dream"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Book"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Interpretation"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Meanings"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activity_Intro"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Settings"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_PaidVersion"
+            android:screenOrientation="locked"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_splash"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.MainActivity"
+            android:screenOrientation="locked"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+    </application>
+
+</manifest>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Act_Dream_Interpretation">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/header"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back__1_"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="DREAM SPEAKS"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/info"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/icon_ionic_md_information_circle_outline"/>
+            <ImageView
+                android:id="@+id/add"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/plus"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Your Dream:"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/dream_title"
+                    android:layout_width="match_parent"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Seeing yourself being chased"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/poppins_medium"/>
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="Your Dream Interpretation:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/volume__1_"
+                    android:padding="@dimen/_2sdp"
+                    android:id="@+id/speak"
+                    android:layout_alignParentEnd="true"
+                    app:tint="@color/white"/>
+            </RelativeLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Possible Meanings:"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/poppins_medium"/>
+                    <TextView
+                        android:id="@+id/pm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Being chased by an enemy in a dream can signify feelings of being threatened, trapped, or overwhelmed in your waking life. This kind of dream often reflects the emotional or psychological burdens you're carrying. It may symbolize unresolved issues, conflicts, or fears that you're avoiding. The enemy figure represents the stressor or obstacle that you perceive as a threat."
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_11ssp"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_medium"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Expert Opinion: "
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/poppins_medium"/>
+                    <TextView
+                        android:id="@+id/eo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark_blue"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/poppins_medium"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:layout_marginHorizontal="@dimen/_20sdp"
+
+                                android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/dislike"
+                                    android:layout_width="@dimen/_30sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:src="@drawable/layer_2_1"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:layout_marginHorizontal="@dimen/_20sdp"
+                                android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/like"
+                                    android:layout_width="@dimen/_30sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:src="@drawable/layer_2d"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/privacy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:text="For quick support, write to us at"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="@dimen/_10ssp" />
+                        <TextView
+                            android:id="@+id/tos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:text="feedback@dreammeaning"
+                            android:textColor="@color/violet"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="Add To Dream Book"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_14ssp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="Track, Analyze, and Explore Your Dreams Anytime by Adding them to Your Dream Book."
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_10ssp" />
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView3"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner3">
+            </com.google.android.gms.ads.AdView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

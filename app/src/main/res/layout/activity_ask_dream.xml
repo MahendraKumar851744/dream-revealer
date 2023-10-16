@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Add_Dream">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/header"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back__1_"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="Dream Book"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_50sdp"
+                android:text="Ask Dream Interpretation"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="We did our best to cover all common dreams. Here, you are most welcome to send us your personal dream. We will update its interpretation in this app within 5 working days!"
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_10ssp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Email Id*"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:orientation="vertical">
+                    <EditText
+                        android:paddingHorizontal="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="#8391A4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:textStyle="bold"
+                        android:background="#00FFFFFF"
+                        android:hint="Please enter your Email Id here..." />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="Dream Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:orientation="vertical">
+                    <EditText
+                        android:paddingHorizontal="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="#8391A4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="#00FFFFFF"
+                        android:hint="Chewing Glass/Climbing Uphill..." />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="Your Dream*"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="1dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:minHeight="@dimen/_130sdp"
+                        android:orientation="vertical">
+                        <EditText
+                            android:paddingHorizontal="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins"
+                            android:textColorHint="#8391A4"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:background="#00FFFFFF"
+                            android:hint="Please describe your dream..." />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/save"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_alignParentBottom="true"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="Ask Dream @ ₹250.00"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_14ssp" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Ask your Dream Interpretation with our Experts"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+                <TextView
+                    android:id="@+id/tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Privacy Policy &amp; Terms of Service"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Dream Speakers</string>
+    <string name="pro_version">Buy Pro Version</string>
+    <string name="ads">Continue with Ads</string>
+    <string name="tos">Terms of Service</string>
+    <string name="privacy">Privacy Policy</string>
+    <string name="content1">Uncover Hidden Dream Meanings Our priority is to ensure that you\'re provided with the smooth and best App experience and make sure that you should not face any issues.\n\nPlease understand that this app is supported by ads. Here is an option to enjoy an ad-free version by upgrading it.</string>
+    <string name="ad_free">Enjoy Ad Free Subscription</string>
+    <string name="content2">Ad Free Dream Interpretations @ ₹100.00/ Month Only.</string>
+    <string name="_100_month">₹100/ Month</string>
+    <string name="content3">All of us used to dream while sleeping and forget them in time. You\'ll agree that understanding the hidden meanings of our dreams might be life-changing information.\n\nMost of our dreams indicate something important part of our life that exists an inner side of us, but we do not want to discuss it with anyone as we don\'t find an appropriate way for that. Finding meaning and chasing the correct way help us to accomplish that wish and get a sense of inner peace.</string>
+    <string name="content4">Do dreams have a deeper meaning? Analyzing dream patterns and interpreting their meanings has become a popular source of both entertainment and self-reflection.\n\nDreams are one of the most fascinating and mysterious aspects of the human experience, and dream interpretation can give us a good indication of what is currently happening in our lives and inside our inner self!</string>
+    <string name="title_activity_act_intro2">Act_Intro2</string>
+    <string name="skip"><![CDATA[Skip >>]]></string>
+    <string name="prev"><![CDATA[<< Prev]]></string>
+    <string name="next"><![CDATA[Next >>]]></string>
+    <string name="please_share_your_suggestions_with_us_to_improve_the_app">Please share your suggestions with us to improve the app.</string>
+    <string name="thanks">Thanks for the appreciation, please share your 5-star feedback with other users.</string>
+    <string name="content5"># During your dream search, the same dream may appear more than once in different categories. Please select your dream based on your Relevant Category.\n\n# Personalized Dreams Category is for those users who directly send us their dream for its interpretation. Select this category\'s dream if you\'re looking your asked dream. Parts Dreams Uncover The Hidden Meaning Of Different Body Parts Dreams</string>
+
+    <string name="appid">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner2">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner3">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner4">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="nativead">ca-app-pub-6026624775205884/3348399944</string>
+</resources>

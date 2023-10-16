@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_toLeftOf="@+id/go"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/dark_blue"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_width="@dimen/_60sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:src="@drawable/clouds"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/ll"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="start"
+                        android:text="Common Dreams"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_10ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/go"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/icon_awesome_arrow_alt_circle_right"/>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
