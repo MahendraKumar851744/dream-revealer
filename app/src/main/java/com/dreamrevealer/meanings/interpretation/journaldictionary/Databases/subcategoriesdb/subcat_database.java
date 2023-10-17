@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities = {SubCategory.class}, version  = 1)
+@Database(entities = {SubCategory.class}, version  = 3)
 public abstract class subcat_database extends RoomDatabase {
 
     public abstract subcat_dao dao();

@@ -1,9 +1,13 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.PHYSCOLOGICAL;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -17,6 +21,7 @@ import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.RatingDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.ScratchViewr;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -46,10 +51,8 @@ public class Act_Physcological extends AppCompatActivity {
         String affirmation = sp.getString("physcological","");
         content.setText(affirmation);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        LoadingDialog dialog = new LoadingDialog(this,android.R.style.Theme_Black_NoTitleBar_Fullscreen,"FACT OF THE DAY"+"!!",true);
-        dialog.show();
 
-        Date currentDate = new Date();
+         Date currentDate = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM, yyyy", Locale.US);
         String formattedDate = sdf.format(currentDate);
         date.setText(formattedDate);
@@ -136,6 +139,14 @@ public class Act_Physcological extends AppCompatActivity {
         like.setOnClickListener(view -> {
             RatingDialog customDialog = new RatingDialog(Act_Physcological.this);
             customDialog.show();
+        });
+
+        share.setOnClickListener(view -> {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Fact of the day:\n" + affirmation);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
         });
     }
     public void onPause(){

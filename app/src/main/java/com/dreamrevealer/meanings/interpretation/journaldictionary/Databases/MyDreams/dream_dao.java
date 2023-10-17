@@ -3,6 +3,7 @@ package com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.My
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -13,7 +14,7 @@ public interface dream_dao {
     @Query("SELECT * FROM dreams")
     List<Dream> getAllDreams();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Dream item);
 
     @Delete

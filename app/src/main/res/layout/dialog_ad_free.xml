@@ -21,7 +21,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:paddingVertical="@dimen/_30sdp"
+                    android:paddingVertical="@dimen/_25sdp"
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/pro"
@@ -39,14 +39,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
                         android:gravity="center"
-                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingHorizontal="@dimen/_30sdp"
                         android:text="@string/content2"
                         android:textColor="@color/dark_blue"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_11ssp" />
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_13sdp"
                         android:layout_marginHorizontal="@dimen/_40sdp"
                         app:cardBackgroundColor="@color/yellow"
                         app:cardCornerRadius="@dimen/_5sdp">
@@ -107,7 +107,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_6sdp"
                     android:src="@drawable/cross" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

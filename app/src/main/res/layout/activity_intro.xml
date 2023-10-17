@@ -20,16 +20,18 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/menu"
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:padding="@dimen/_2sdp"
             android:src="@drawable/group_198"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_50sdp"
-            android:text="DREAM SPEAKS"
+            android:text="DREAM REVEALER"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
         <TextView
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:layout_alignParentEnd="true"
             android:text="@string/skip"
             android:textColor="#FFFFFF"
@@ -58,7 +61,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/iv1"
             android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/mask_group_14"/>
+            android:src="@drawable/sleep"/>
 
         <LinearLayout
             android:id="@+id/lay1"
@@ -210,7 +213,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
-
                         android:layout_alignParentBottom="true"
                         android:gravity="center"
                         android:layout_marginHorizontal="@dimen/_10sdp"

@@ -1,5 +1,8 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.AFFIRMATION;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
@@ -10,6 +13,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
@@ -23,15 +27,18 @@ import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog
 import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.RatingDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
 
 import java.util.Locale;
 
-public class Act_Dream_Interpretation extends AppCompatActivity {
+public class Act_Dream_Interpretation extends AppCompatActivity implements TextToSpeech.OnInitListener {
     TextToSpeech t1;
     TextView title,pm,eo,dream_title;
     ImageView iv_back,speak,info,add,like,dislike;
     String cat_title;
     CardView cv_add;
+    private Handler handler;
+    private static final int SPEAKING_CHECK_DELAY = 300;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +56,12 @@ public class Act_Dream_Interpretation extends AppCompatActivity {
         dislike = findViewById(R.id.dislike);
         product_database p_db = product_database.getDbInstance(this);
         SharedPreferences sp = getSharedPreferences("BASE_APP",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
         int cat_id = sp.getInt("cat_id",0);
         int subcat_id = sp.getInt("subcat_id",0);
         cat_title = sp.getString("cat_title","");
         String subcat_title = sp.getString("subcat_title","");
 
-        LoadingDialog dialog2 = new LoadingDialog(this,android.R.style.Theme_Black_NoTitleBar_Fullscreen,"MEANING OF "+subcat_title.toUpperCase().replace(".","")+"!!",true);
-        dialog2.show();
 
         MobileAds mobileAds = new MobileAds(this);
         mobileAds.loadBannerAd(findViewById(R.id.adView3));
@@ -66,23 +72,7 @@ public class Act_Dream_Interpretation extends AppCompatActivity {
                 product = p;
             }
         }
-        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status == TextToSpeech.SUCCESS) {
-                    int result = t1.setLanguage(Locale.US);
-
-                    if (result == TextToSpeech.LANG_MISSING_DATA ||
-                            result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        Log.e("TTS", "Language not supported");
-                    } else {
-                        // Text-to-Speech is initialized successfully
-                    }
-                } else {
-                    Log.e("TTS", "Initialization failed");
-                }
-            }
-        });
+        t1 = new TextToSpeech(this, this);
 
 
         info.setOnClickListener(view -> {
@@ -130,30 +120,24 @@ public class Act_Dream_Interpretation extends AppCompatActivity {
 
         }
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        handler = new Handler();
         speak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                t1.speak("Possible Meaning."+pm.getText().toString()+"Expert Opinion."+eo.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
-                if(!t1.isSpeaking()) {
-                    t1 = new TextToSpeech(Act_Dream_Interpretation.this, new TextToSpeech.OnInitListener() {
-                        @Override
-                        public void onInit(int i) {
-                            if (i == TextToSpeech.SUCCESS) {
-                                int result = t1.setLanguage(Locale.US);
 
-                                if (result == TextToSpeech.LANG_MISSING_DATA ||
-                                        result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                                    Log.e("TTS", "Language not supported");
-                                } else {
-                                    // Text-to-Speech is initialized successfully
-                                }
-                            } else {
-                                Log.e("TTS", "Initialization failed");
-                            }
+                String content = "Possible Meaning."+pm.getText().toString()+"Expert Opinion."+eo.getText().toString();
+                t1.speak(content, TextToSpeech.QUEUE_FLUSH, null,null);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!t1.isSpeaking()) {
+                            startTextToSpeech(content);
                         }
-                    });
-                }
-                Log.d("TAG",pm.getText().toString()+"");
+                    }
+                }, SPEAKING_CHECK_DELAY);
+
+
             }
         });
     }
@@ -162,16 +146,51 @@ public class Act_Dream_Interpretation extends AppCompatActivity {
     }
 
     public void onPause(){
+        super.onPause();
         if(t1 !=null){
             t1.stop();
             t1.shutdown();
         }
-        super.onPause();
     }
     private void intentToDreamBook(){
         Intent i = new Intent(this, Add_Dream.class);
         i.putExtra("cat_title",cat_title);
         i.putExtra("dream_title",dream_title.getText().toString());
         startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
+        handler.removeCallbacks(null);
+    }
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = t1.setLanguage(Locale.US);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            }
+
+        } else {
+        }
+    }
+
+    private void startTextToSpeech(String content) {
+        t1 = new TextToSpeech(Act_Dream_Interpretation.this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS) {
+                    t1.setLanguage(Locale.US);
+                   t1.speak(content, TextToSpeech.QUEUE_FLUSH, null, TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID);
+                }
+            }
+        });
     }
 }

@@ -1,6 +1,8 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary;
 
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.BASE_URL;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.PHYSCOLOGICAL;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,12 +22,18 @@ import com.dreamrevealer.meanings.interpretation.journaldictionary.Activities.Ac
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.SubCategory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ad_SubCategories extends RecyclerView.Adapter<Ad_SubCategories.CategoryViewHolder> {
 
     Context context;
     ArrayList<SubCategory> items;
     String image;
+
+    public void addAll(List<SubCategory> newItems) {
+        items.addAll(newItems);
+        notifyDataSetChanged();
+    }
 
     public Ad_SubCategories(Context context, ArrayList<SubCategory> items,String image) {
         this.context = context;
@@ -45,13 +53,15 @@ public class Ad_SubCategories extends RecyclerView.Adapter<Ad_SubCategories.Cate
         holder.tv_title.setText(items.get(position).getTitle());
         Glide.with(context).load(BASE_URL + image).into(holder.iv1);
         holder.itemView.setOnClickListener(view -> {
-            Intent i = new Intent(context, Act_Dream_Interpretation.class);
             SharedPreferences sp = context.getSharedPreferences("BASE_APP",Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             editor.putInt("subcat_id",items.get(position).getId());
             editor.putString("subcat_title",items.get(position).getTitle());
+            editor.putInt("NAVIGATION",INTERPRET);
+            editor.putString("CONTENT","MEANING OF "+ items.get(position).getTitle().toUpperCase().replace(".","")+"!!");
+            editor.putBoolean("SHOW_AD",true);
             editor.apply();
-            context.startActivity(i);
+            new Utils(context).navigateToLoading();
         });
 
     }

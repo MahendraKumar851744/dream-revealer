@@ -50,7 +50,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
-                            android:singleLine="true"
+                            android:maxLines="2"
+                            android:ellipsize="end"
                             android:text="Discover your dreams meaning!"
                             android:textColor="#8391A4"
                             android:textSize="@dimen/_8ssp" />
@@ -68,8 +69,8 @@
                     android:id="@+id/cta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/yellow"
                     app:cardCornerRadius="@dimen/_5sdp">

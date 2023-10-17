@@ -23,11 +23,12 @@ tools:context=".Activities.Activity_Intro">
         android:layout_height="@dimen/_20sdp"
         android:layout_centerVertical="true"
         android:src="@drawable/back__1_"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:paddingHorizontal="@dimen/_50sdp"
         android:text="Today Affirmation"
@@ -78,6 +79,7 @@ tools:context=".Activities.Activity_Intro">
             app:cardCornerRadius="@dimen/_5sdp">
 
             <RelativeLayout
+                android:id="@+id/ss"
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_250sdp">
                 <ImageView

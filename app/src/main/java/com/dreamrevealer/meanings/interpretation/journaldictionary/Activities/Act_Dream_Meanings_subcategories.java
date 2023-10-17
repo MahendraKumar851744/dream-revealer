@@ -6,15 +6,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,11 +30,14 @@ import com.dreamrevealer.meanings.interpretation.journaldictionary.Ad_SubCategor
 import com.dreamrevealer.meanings.interpretation.journaldictionary.CustomDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.SubCategory;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.subcat_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.SubCategoryViewModel;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.SubCategoryViewModelFactory;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
     RecyclerView rv_products;
@@ -38,6 +48,12 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
     ArrayList<SubCategory> products;
     TextView title,sintheta;
     private ArrayList<SubCategory> filteredItems;
+    private SubCategoryViewModel viewModel;
+    private static final long SEARCH_DELAY = 300;
+
+    private Handler searchHandler = new Handler();
+    private Runnable searchRunnable;
+    ProgressBar progress_bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +65,7 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
         image3 = findViewById(R.id.image3);
         title = findViewById(R.id.title);
         sintheta = findViewById(R.id.sintheta);
+        progress_bar = findViewById(R.id.progress_bar);
         sintheta.setVisibility(View.VISIBLE);
         askDream.setPaintFlags(askDream.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         askDream.setOnClickListener(view -> {
@@ -60,28 +77,31 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("BASE_APP",MODE_PRIVATE);
         int cat_id = sp.getInt("cat_id",0);
         title.setText(sp.getString("cat_title","Dream Meanings"));
-        LoadingDialog dialog = new LoadingDialog(this,android.R.style.Theme_Black_NoTitleBar_Fullscreen,sp.getString("cat_title","Dream Meanings").toUpperCase().replace(".","")+"!!",false);
-        dialog.show();
+
         MobileAds mobileAds = new MobileAds(this);
         mobileAds.loadBannerAd(findViewById(R.id.adView3));
         String img = sp.getString("cat_img","");
-        Glide.with(this).load(BASE_URL+img).into(image3);
+        Glide.with(this).load(BASE_URL+img)
+                .placeholder(R.drawable.image3)
+                .into(image3);
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this,1);
         rv_products.setLayoutManager(linearLayoutManager);
-        subcat_database p_db = subcat_database.getDbInstance(this);
-        ArrayList<SubCategory> items = new ArrayList<>();
-        products = (ArrayList<SubCategory>) p_db.dao().getAllProducts();
-        filteredItems = new ArrayList<>(products);
-        for(SubCategory item:products){
-            if(Integer.parseInt(item.getCat_id())==cat_id){
-                items.add(item);
-            }
-        }
 
-        if(!items.isEmpty()) {
-            ad_products = new Ad_SubCategories(this, items,img);
-            rv_products.setAdapter(ad_products);
-        }
+        progress_bar.setVisibility(View.VISIBLE);
+
+        SubCategoryViewModelFactory factory = new SubCategoryViewModelFactory(getApplication(), cat_id);
+        viewModel = new ViewModelProvider(this, factory).get(SubCategoryViewModel.class);
+        viewModel.getSubCatItems().observe(this, new Observer<List<SubCategory>>() {
+            @Override
+            public void onChanged(List<SubCategory> items) {
+                progress_bar.setVisibility(View.GONE);
+                products =  new ArrayList<>(items);
+                filteredItems = new ArrayList<>(products);
+                ad_products = new Ad_SubCategories(Act_Dream_Meanings_subcategories.this, (ArrayList<SubCategory>) items, img);
+                rv_products.setAdapter(ad_products);
+            }
+        });
+
 
         menu.setOnClickListener(view -> {
             CustomDialog customDialog = new CustomDialog(Act_Dream_Meanings_subcategories.this,android.R.style.Theme_Black_NoTitleBar_Fullscreen);
@@ -95,15 +115,20 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String searchText = s.toString();
-                if(!searchText.isEmpty()){
-                    filter(searchText);
-                    ad_products = new Ad_SubCategories(Act_Dream_Meanings_subcategories.this, filteredItems,img);
-                    rv_products.setAdapter(ad_products);
-                }else{
-                    ad_products = new Ad_SubCategories(Act_Dream_Meanings_subcategories.this, products,img);
-                    rv_products.setAdapter(ad_products);
-                }
+
+                searchHandler.removeCallbacks(searchRunnable);
+
+                searchRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        String searchText = s.toString();
+                        filter(searchText);
+                        ad_products = new Ad_SubCategories(Act_Dream_Meanings_subcategories.this, filteredItems, img);
+                        rv_products.setAdapter(ad_products);
+                    }
+                };
+
+                searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
 
             }
 
@@ -111,6 +136,9 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+
+
+
     }
     public void filter(String searchText) {
         filteredItems.clear();
@@ -126,4 +154,13 @@ public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        searchHandler.removeCallbacks(searchRunnable);
+    }
+
+
+
 }

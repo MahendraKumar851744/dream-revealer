@@ -39,27 +39,31 @@ public class RequestHandler {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(type==1){
+                        if (type == 1) {
                             product_database p_db = product_database.getDbInstance(context);
-                            p_db.clearAllTables();
-                            ArrayList<Product> productList = new ArrayList<>();
-                            Gson gson = new Gson();
-                            productList = gson.fromJson(response, new TypeToken<ArrayList<Product>>() {}.getType());
-                            for(int i=0;i<productList.size();i++){
-                                Product product = productList.get(i);
-                                p_db.dao().insert(product);
-                            }
-
-                        }else if(type==2){
+                            ArrayList<Product> productList = new Gson().fromJson(response, new TypeToken<ArrayList<Product>>() {}.getType());
+                            InsertAsyncTask<ArrayList<Product>> insertTask = new InsertAsyncTask<>(productList, new DatabaseOperations<ArrayList<Product>>() {
+                                @Override
+                                public void insert(ArrayList<Product> data) {
+                                    for (Product product : data) {
+                                        p_db.dao().insert(product);
+                                    }
+                                }
+                            });
+                            insertTask.execute();
+                        }else if (type == 2) {
                             subcat_database p_db = subcat_database.getDbInstance(context);
-                            p_db.clearAllTables();
-                            ArrayList<SubCategory> productList = new ArrayList<>();
-                            Gson gson = new Gson();
-                            productList = gson.fromJson(response, new TypeToken<ArrayList<SubCategory>>() {}.getType());
-                            for(int i=0;i<productList.size();i++){
-                                SubCategory product = productList.get(i);
-                                p_db.dao().insert(product);
-                            }
+                            ArrayList<SubCategory> subCategoryList = new Gson().fromJson(response, new TypeToken<ArrayList<SubCategory>>() {}.getType());
+                            InsertAsyncTask<ArrayList<SubCategory>> insertTask = new InsertAsyncTask<>(subCategoryList, new DatabaseOperations<ArrayList<SubCategory>>() {
+                                @Override
+                                public void insert(ArrayList<SubCategory> data) {
+                                    p_db.clearAllTables();
+                                    for (SubCategory subCategory : data) {
+                                        p_db.dao().insert(subCategory);
+                                    }
+                                }
+                            });
+                            insertTask.execute();
                         }else if(type==3){
                             try {
                                 JSONObject object = new JSONObject(response);
@@ -108,4 +112,7 @@ public class RequestHandler {
 
 
     }
+
+
+
 }

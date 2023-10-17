@@ -3,13 +3,17 @@ package com.dreamrevealer.meanings.interpretation.journaldictionary;
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.BASE_URL;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +34,7 @@ public class FeedBackDialog extends Dialog {
         super(context);
     }
     EditText email,feedback;
+    TextView pp;
     ImageView iv_close;
     CardView submit;
     @Override
@@ -41,12 +46,15 @@ public class FeedBackDialog extends Dialog {
         feedback = findViewById(R.id.feedback);
         submit = findViewById(R.id.submit);
         email = findViewById(R.id.email);
+        pp = findViewById(R.id.pp);
         iv_close.setOnClickListener(view -> {
             dismiss();
 
         });
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+        pp.setOnClickListener(view -> {
+            intentToLink("https://sites.google.com/view/dream-revealer-privacy-policy/privacy-policy");
+        });
         submit.setOnClickListener(view -> {
             if(email.getText().toString().isEmpty() || feedback.getText().toString().isEmpty()){
                 Toast.makeText(getContext(), "Please complete the fields!", Toast.LENGTH_SHORT).show();
@@ -85,5 +93,14 @@ public class FeedBackDialog extends Dialog {
         };
         Volley.newRequestQueue(context).add(stringRequest);
     }
+    private void intentToLink(String url){
+        try {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            getContext().startActivity(i);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
 
+    }
 }

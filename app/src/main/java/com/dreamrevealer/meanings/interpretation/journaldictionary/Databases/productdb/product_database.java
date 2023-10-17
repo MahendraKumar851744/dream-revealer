@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities = {Product.class}, version  = 1)
+@Database(entities = {Product.class}, version  = 2)
 public abstract class product_database extends RoomDatabase {
 
     public abstract product_dao dao();

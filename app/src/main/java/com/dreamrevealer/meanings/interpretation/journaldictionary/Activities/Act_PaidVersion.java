@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,12 +27,14 @@ public class Act_PaidVersion extends AppCompatActivity {
         pro = findViewById(R.id.pro);
         ads = findViewById(R.id.ads);
         privacy = findViewById(R.id.privacy);
+        privacy.setPaintFlags(privacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         privacy.setOnClickListener(view -> {
             new Utils(Act_PaidVersion.this).privacy_Policy();
         });
 
         tos = findViewById(R.id.tos);
+        tos.setPaintFlags(tos.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         tos.setOnClickListener(view -> {
             new Utils(Act_PaidVersion.this).tos();
@@ -48,6 +51,8 @@ public class Act_PaidVersion extends AppCompatActivity {
             iv_close.setOnClickListener(viw->{
                 dialog.dismiss();
             });
+            privacy.setPaintFlags(privacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            tos.setPaintFlags(tos.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
             privacy.setOnClickListener(viw -> {
                 new Utils(Act_PaidVersion.this).privacy_Policy();

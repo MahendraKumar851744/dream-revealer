@@ -1,6 +1,9 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary;
 
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.BASE_URL;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.PHYSCOLOGICAL;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.SUBCAT;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -44,16 +47,16 @@ public class Ad_Categories extends RecyclerView.Adapter<Ad_Categories.CategoryVi
         holder.desc.setText(items.get(position).getDescription());
         Glide.with(context).load(BASE_URL +  items.get(position).getImage()).into(holder.iv1);
         holder.itemView.setOnClickListener(view -> {
-
-
-            Intent i = new Intent(context, Act_Dream_Meanings_subcategories.class);
             SharedPreferences sp = context.getSharedPreferences("BASE_APP",Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             editor.putInt("cat_id",items.get(position).getId());
             editor.putString("cat_img",items.get(position).getImage());
             editor.putString("cat_title",items.get(position).getTitle());
+            editor.putInt("NAVIGATION",SUBCAT);
+            editor.putBoolean("SHOW_AD",false);
+            editor.putString("CONTENT",items.get(position).getTitle().toUpperCase().replace(".","")+"!!");
             editor.apply();
-            context.startActivity(i);
+            new Utils(context).navigateToLoading();
         });
 
     }

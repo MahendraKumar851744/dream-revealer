@@ -1,8 +1,10 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.productdb;
 
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -13,7 +15,7 @@ public interface product_dao {
     @Query("SELECT * FROM products")
     List<Product> getAllProducts();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Product item);
 
     @Delete

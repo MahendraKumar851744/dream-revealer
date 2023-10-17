@@ -27,7 +27,7 @@
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_50sdp"
-            android:text="DREAM SPEAKS"
+            android:text="DREAM REVEALER"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
         <TextView

@@ -35,7 +35,7 @@ public class RatingDialog extends Dialog implements View.OnClickListener {
     }
 
     ImageView iv_close;
-
+    TextView pp;
     EditText email,feedback;
     TextView lay1,later;
     LinearLayout lay2,lay3;
@@ -61,7 +61,10 @@ public class RatingDialog extends Dialog implements View.OnClickListener {
         feedback = findViewById(R.id.feedback);
         submit = findViewById(R.id.submit);
         email = findViewById(R.id.email);
-
+        pp = findViewById(R.id.pp);
+        pp.setOnClickListener(view -> {
+            intentToLink("https://sites.google.com/view/dream-revealer-privacy-policy/privacy-policy");
+        });
         later.setOnClickListener(view -> {
             dismiss();
         });
@@ -190,5 +193,15 @@ public class RatingDialog extends Dialog implements View.OnClickListener {
             }
         };
         Volley.newRequestQueue(context).add(stringRequest);
+    }
+    private void intentToLink(String url){
+        try {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            getContext().startActivity(i);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }

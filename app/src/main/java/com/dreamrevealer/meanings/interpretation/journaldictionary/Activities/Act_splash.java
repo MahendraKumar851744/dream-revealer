@@ -5,6 +5,7 @@ import static com.dreamrevealer.meanings.interpretation.journaldictionary.Consta
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_PHYSCOLOGICAL_FACT;
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_PRODUCTS;
 import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_SUBCATEGORIES;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.MAIN_ACTIVITY;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -26,11 +27,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.DatabaseOperations;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.Category;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.cat_database;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.InsertAsyncTask;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.InsertionCallback;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.NetworkConnection;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.RequestHandler;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -84,34 +89,36 @@ public class Act_splash extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             cat_database p_db = cat_database.getDbInstance(context);
-                            p_db.clearAllTables();
-                            ArrayList<Category> productList = new ArrayList<>();
-                            Gson gson = new Gson();
-                            productList = gson.fromJson(response, new TypeToken<ArrayList<Category>>() {}.getType());
-                            for(int i=0;i<productList.size();i++){
-                                Category product = productList.get(i);
-                                p_db.dao().insert(product);
-                            }
-
-                            new Handler().postDelayed(new Runnable() {
+                            ArrayList<Category> productList = new Gson().fromJson(response, new TypeToken<ArrayList<Category>>() {}.getType());
+                            InsertAsyncTask<ArrayList<Category>> insertTask = new InsertAsyncTask<>(productList, new DatabaseOperations<ArrayList<Category>>() {
                                 @Override
-                                public void run() {
-
-
+                                public void insert(ArrayList<Category> data) {
+                                    p_db.clearAllTables();
+                                    for (Category product : data) {
+                                        p_db.dao().insert(product);
+                                    }
+                                }
+                            }, new InsertionCallback() {
+                                @Override
+                                public void onInsertionComplete() {
                                     SharedPreferences sp = getSharedPreferences("BASE_APP",MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sp.edit();
                                     boolean bool = sp.getBoolean("Intro",false);
                                     if(bool){
-                                        Intent i = new Intent(Act_splash.this, MainActivity.class);
-                                        startActivity(i);
-                                        finish();
+                                        editor.putString("CONTENT","UNCOVER HIDDEN DREAM MEANINGS!!");
+                                        editor.putBoolean("SHOW_AD",true);
+                                        editor.putInt("NAVIGATION",MAIN_ACTIVITY);
+                                        editor.apply();
+                                        new Utils(Act_splash.this).navigateToLoading();
                                     }else{
                                         Intent i = new Intent(Act_splash.this, Act_PaidVersion.class);
                                         startActivity(i);
                                         finish();
                                     }
-
                                 }
-                            }, 1000);
+                            });
+                            insertTask.execute();
+
                         }
                     },
                     new Response.ErrorListener() {

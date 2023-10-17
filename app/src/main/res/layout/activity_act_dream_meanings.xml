@@ -12,6 +12,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:layout_above="@+id/adView3"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
                 android:padding="@dimen/_5sdp"
                 android:id="@+id/header"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:gravity="center"
                 android:orientation="horizontal">
                 <ImageView
@@ -112,15 +114,7 @@
                 android:text="Select what you saw in your Common Dreams:"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11ssp" />
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView3"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_height="wrap_content"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner3">
-            </com.google.android.gms.ads.AdView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
@@ -130,8 +124,28 @@
     </androidx.core.widget.NestedScrollView>
 
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView3"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner3">
+    </com.google.android.gms.ads.AdView>
 
 
+
+
+        <ProgressBar
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:indeterminate="true"
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:indeterminateTint="@color/yellow"
+            android:layout_centerInParent="true" />
 
 
 </RelativeLayout>

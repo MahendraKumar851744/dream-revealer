@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities = {Dream.class}, version  = 1)
+@Database(entities = {Dream.class}, version  = 2)
 public abstract class dream_database extends RoomDatabase {
 
     public abstract dream_dao dao();
