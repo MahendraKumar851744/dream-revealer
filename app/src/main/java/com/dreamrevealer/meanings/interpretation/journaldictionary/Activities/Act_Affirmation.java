@@ -1,19 +1,12 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.AFFIRMATION;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.FileProvider;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -22,16 +15,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.RatingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.ScratchViewr;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.RatingDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.ScratchViewr;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;

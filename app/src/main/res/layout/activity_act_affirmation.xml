@@ -21,6 +21,7 @@ tools:context=".Activities.Activity_Intro">
         android:id="@+id/iv_back"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
         android:layout_centerVertical="true"
         android:src="@drawable/back__1_"/>
 
@@ -114,7 +115,7 @@ tools:context=".Activities.Activity_Intro">
             </RelativeLayout>
 
 
-            <com.dreamrevealer.meanings.interpretation.journaldictionary.ScratchViewr
+            <com.dreamrevealer.meanings.interpretation.journaldictionary.util.ScratchViewr
                 android:id="@+id/scratch_view"
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_250sdp"

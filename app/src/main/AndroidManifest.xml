@@ -16,89 +16,99 @@
         android:theme="@style/Theme.DreamSpeakers"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.Act_privacy_policy"
-            android:screenOrientation="locked"
+            android:name=".Activities.Act_Divine_Prayers"
             android:exported="false" />
         <activity
-            android:name=".lay_loading"
-            android:screenOrientation="locked"
+            android:name=".Activities.Act_Divine_Prayers_Preview"
             android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Healing_Sound"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_privacy_policy"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".dialogs.lay_loading"
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Physcological"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Affirmation"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Intro2"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Dream_Meanings_subcategories"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Ask_Dream"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Dream_List"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Update_Dream"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Add_Dream"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Dream_Book"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Dream_Interpretation"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Dream_Meanings"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Activity_Intro"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_Settings"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_PaidVersion"
-            android:screenOrientation="locked"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".Activities.Act_splash"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:screenOrientation="locked"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="locked" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-9890087394797959~1328721127" />
     </application>
 
 </manifest>

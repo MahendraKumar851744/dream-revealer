@@ -4,18 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.Utils;
 
 public class Act_PaidVersion extends AppCompatActivity {
 

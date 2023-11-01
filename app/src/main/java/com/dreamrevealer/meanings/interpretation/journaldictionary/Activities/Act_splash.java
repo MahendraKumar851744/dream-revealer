@@ -1,11 +1,12 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_AFFIRMATION;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_CATEGORIES;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_PHYSCOLOGICAL_FACT;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_PRODUCTS;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.GET_SUBCATEGORIES;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.MAIN_ACTIVITY;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_AFFIRMATION;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_CATEGORIES;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_HEALINGS;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_PHYSCOLOGICAL_FACT;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_PRODUCTS;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.GET_SUBCATEGORIES;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Utils.MAIN_ACTIVITY;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -14,7 +15,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -27,15 +27,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.DatabaseOperations;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.listeners.DatabaseOperations;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.Category;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.cat_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.InsertAsyncTask;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.InsertionCallback;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.NetworkConnection;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.InsertAsyncTask;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.listeners.InsertionCallback;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.NetworkConnection;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.RequestHandler;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.RequestHandler;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.Utils;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -55,6 +55,7 @@ public class Act_splash extends AppCompatActivity {
         requestHandler.makeRequest(GET_SUBCATEGORIES,2);
         requestHandler.makeRequest(GET_AFFIRMATION,3);
         requestHandler.makeRequest(GET_PHYSCOLOGICAL_FACT,4);
+        requestHandler.makeRequest(GET_HEALINGS,5);
         getData(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -88,6 +89,7 @@ public class Act_splash extends AppCompatActivity {
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Log.d("APPLICATION",response);
                             cat_database p_db = cat_database.getDbInstance(context);
                             ArrayList<Category> productList = new Gson().fromJson(response, new TypeToken<ArrayList<Category>>() {}.getType());
                             InsertAsyncTask<ArrayList<Category>> insertTask = new InsertAsyncTask<>(productList, new DatabaseOperations<ArrayList<Category>>() {
@@ -105,7 +107,7 @@ public class Act_splash extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sp.edit();
                                     boolean bool = sp.getBoolean("Intro",false);
                                     if(bool){
-                                        editor.putString("CONTENT","UNCOVER HIDDEN DREAM MEANINGS!!");
+                                        editor.putString("CONTENT","Discover the hidden messages in your dreams!");
                                         editor.putBoolean("SHOW_AD",true);
                                         editor.putInt("NAVIGATION",MAIN_ACTIVITY);
                                         editor.apply();

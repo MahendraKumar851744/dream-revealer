@@ -21,6 +21,7 @@
         <ImageView
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
             android:src="@drawable/back__1_"/>
         <TextView
             android:layout_width="match_parent"

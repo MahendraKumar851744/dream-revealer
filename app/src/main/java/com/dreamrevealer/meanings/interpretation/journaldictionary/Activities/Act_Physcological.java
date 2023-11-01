@@ -1,8 +1,5 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.PHYSCOLOGICAL;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -16,12 +13,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.RatingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.ScratchViewr;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.RatingDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.ScratchViewr;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,8 +1,5 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.AFFIRMATION;
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Utils.INTERPRET;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
@@ -15,19 +12,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.productdb.Product;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.productdb.product_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.FeedBackDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.FeedBackDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.RatingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Utils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.RatingDialog;
 
 import java.util.Locale;
 

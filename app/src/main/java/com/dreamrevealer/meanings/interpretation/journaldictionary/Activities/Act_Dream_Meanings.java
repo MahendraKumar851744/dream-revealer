@@ -17,14 +17,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Ad_Categories;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Ad_SubCategories;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.CategoryViewModel;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.CustomDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Adapters.Ad_Categories;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.viewModel.CategoryViewModel;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.CustomDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.Category;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.categories.cat_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.SubCategory;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 
 import java.util.ArrayList;

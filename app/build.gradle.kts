@@ -1,8 +1,14 @@
 plugins {
     id("com.android.application")
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+
 }
 
 android {
+
+
     namespace = "com.dreamrevealer.meanings.interpretation.journaldictionary"
     compileSdk = 34
 
@@ -11,10 +17,11 @@ android {
         minSdk = 21
         targetSdk = 33
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -63,4 +70,12 @@ dependencies {
 
     implementation("com.android.billingclient:billing-ktx:$billing_version")
     implementation("com.anjlab.android.iab.v3:library:2.0.3")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+
+
+    implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
 }

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.dream_dao;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.dream_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 
 public class Act_Dream_Book extends AppCompatActivity {

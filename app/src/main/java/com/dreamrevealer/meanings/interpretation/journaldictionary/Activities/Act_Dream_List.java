@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Ad_Dreams;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Adapters.Ad_Dreams;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.Dream;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.dream_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.OnClickListener;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.listeners.OnClickListener;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 
 import java.util.ArrayList;

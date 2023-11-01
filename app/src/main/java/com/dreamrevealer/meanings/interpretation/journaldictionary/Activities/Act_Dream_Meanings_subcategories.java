@@ -1,23 +1,20 @@
 package com.dreamrevealer.meanings.interpretation.journaldictionary.Activities;
 
-import static com.dreamrevealer.meanings.interpretation.journaldictionary.Constant.BASE_URL;
+import static com.dreamrevealer.meanings.interpretation.journaldictionary.util.Constant.BASE_URL;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
-import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.Observer;
@@ -26,18 +23,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Ad_SubCategories;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.CustomDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.Adapters.Ad_SubCategories;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.CustomDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.SubCategory;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.subcategoriesdb.subcat_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.SubCategoryViewModel;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.SubCategoryViewModelFactory;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.viewModel.SubCategoryViewModel;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.viewModel.SubCategoryViewModelFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Act_Dream_Meanings_subcategories extends AppCompatActivity {
     RecyclerView rv_products;

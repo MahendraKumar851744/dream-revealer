@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dreamrevealer.meanings.interpretation.journaldictionary.CustomDialog;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.dialogs.CustomDialog;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 
 public class Activity_Intro extends AppCompatActivity implements View.OnClickListener {

@@ -23,9 +23,8 @@ import android.widget.Toast;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.Dream;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.dream_dao;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.Databases.MyDreams.dream_database;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.KeyboardUtils;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.LoadingDialog;
-import com.dreamrevealer.meanings.interpretation.journaldictionary.MobileAds;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.util.KeyboardUtils;
+import com.dreamrevealer.meanings.interpretation.journaldictionary.ads.MobileAds;
 import com.dreamrevealer.meanings.interpretation.journaldictionary.R;
 
 import java.util.Calendar;
