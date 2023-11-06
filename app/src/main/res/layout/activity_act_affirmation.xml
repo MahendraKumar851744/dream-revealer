@@ -115,7 +115,7 @@ tools:context=".Activities.Activity_Intro">
             </RelativeLayout>
 
 
-            <com.dreamrevealer.meanings.interpretation.journaldictionary.util.ScratchViewr
+            <com.meanings.interpretation.journaldictionary.dreamrevealer.util.ScratchViewr
                 android:id="@+id/scratch_view"
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_250sdp"

@@ -1,19 +1,19 @@
 plugins {
     id("com.android.application")
     // Add the Google services Gradle plugin
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+//    id("com.google.gms.google-services")
+//    id("com.google.firebase.crashlytics")
 
 }
 
 android {
 
 
-    namespace = "com.dreamrevealer.meanings.interpretation.journaldictionary"
+    namespace = "com.meanings.interpretation.journaldictionary.dreamrevealer"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.dreamrevealer.meanings.interpretation.journaldictionary"
+        applicationId = "com.meanings.interpretation.journaldictionary.dreamrevealer"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
@@ -56,7 +56,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.5.3")
     implementation("androidx.navigation:navigation-ui:2.5.3")
     implementation("com.google.android.gms:play-services-ads-lite:22.4.0")
-    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
+//    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -72,9 +72,9 @@ dependencies {
     implementation("com.anjlab.android.iab.v3:library:2.0.3")
 
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
-    implementation("com.google.firebase:firebase-crashlytics")
-    implementation("com.google.firebase:firebase-analytics")
+//    implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
+//    implementation("com.google.firebase:firebase-crashlytics")
+//    implementation("com.google.firebase:firebase-analytics")
 
 
     implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")

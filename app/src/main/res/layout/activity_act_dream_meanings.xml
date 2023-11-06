@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
+                    android:visibility="invisible"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="Ask Dream"

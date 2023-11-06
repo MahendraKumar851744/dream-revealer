@@ -13,8 +13,6 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_toLeftOf="@+id/playNow"
-
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:id="@+id/ll"
@@ -25,12 +23,14 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:id="@+id/iv1"
                             android:layout_width="@dimen/_60sdp"
-                            android:padding="@dimen/_10sdp"
-                            android:layout_height="@dimen/_50sdp"
-                            android:src="@drawable/clouds"/>
+                            android:layout_height="@dimen/_60sdp"
+                            android:scaleType="centerCrop"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/clouds" />
                         <ProgressBar
                             android:id="@+id/progressBar"
                             android:visibility="gone"
@@ -38,14 +38,14 @@
                             android:layout_centerInParent="true"
                             android:layout_height="@dimen/_30sdp"
                             android:indeterminateTint="@color/white"
-                             />
+                            />
                     </RelativeLayout>
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:paddingVertical="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp"
                     android:paddingHorizontal="@dimen/_5sdp"
                     android:layout_toRightOf="@+id/ll"
                     android:layout_height="wrap_content">
@@ -54,50 +54,56 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
-                        android:gravity="center"
+                        android:gravity="start"
                         android:text="Meditation Music"
                         android:textColor="@color/dark_blue"
                         android:textSize="@dimen/_11ssp" />
-                    <TextView
-                        android:id="@+id/desc"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:text="Size: 20.2 MB"
-                        android:singleLine="true"
-                        android:ellipsize="end"
-                        android:textColor="#8391A4"
-                        android:textSize="@dimen/_9ssp" />
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_toLeftOf="@+id/playNow"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins"
+                            android:maxLines="2"
+                            android:text="Size: 20.2 MB"
+                            android:textColor="#8391A4"
+                            android:textSize="@dimen/_9ssp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/playNow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            app:cardBackgroundColor="@color/yellow"
+                            app:cardCornerRadius="@dimen/_5sdp">
+
+                            <TextView
+                                android:id="@+id/tv_playNow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/_5sdp"
+                                android:paddingVertical="@dimen/_3sdp"
+                                android:layout_marginHorizontal="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:text="Play Now"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="@dimen/_10ssp" />
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/playNow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="@dimen/_5sdp">
 
-                <TextView
-                    android:id="@+id/tv_playNow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:text="Play Now"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="@dimen/_11ssp" />
-            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 

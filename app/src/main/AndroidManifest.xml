@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamSpeakers"
         tools:targetApi="31">
+        <activity
+            android:name=".Activities.Act_Final_Healing"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Wiki_Interpretation"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Wiki_List"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Dream_Calender"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Act_Final_Divine"
+            android:exported="false" />
         <activity
             android:name=".Activities.Act_Divine_Prayers"
             android:exported="false" />
@@ -108,7 +122,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9890087394797959~1328721127" />
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>
