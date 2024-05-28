@@ -1,19 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.DreamSpeakers" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/global</item>
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/global</item>
     </style>
-
     <style name="Theme.DreamSpeakers" parent="Base.Theme.DreamSpeakers" />
-
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_animation</item>
-        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
-    </style>
-
-    <style name="DialogAnimation2">
-        <item name="android:windowEnterAnimation">@anim/slide_animation_right</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
     <style name="CustomProgressBar" parent="@android:style/Widget.ProgressBar.Large">

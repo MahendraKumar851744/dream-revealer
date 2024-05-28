@@ -263,24 +263,26 @@
 
             </androidx.cardview.widget.CardView>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bannerplacer">
+                <com.google.android.gms.ads.AdView
+                    xmlns:ads="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/adView3"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner3">
+                </com.google.android.gms.ads.AdView>
+
+            </FrameLayout>
 
 
         </LinearLayout>
     </ScrollView>
-    <LinearLayout
-        android:id="@+id/ad"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView3"
-            android:layout_width="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner3">
-        </com.google.android.gms.ads.AdView>
-    </LinearLayout>
+
 
 </RelativeLayout>

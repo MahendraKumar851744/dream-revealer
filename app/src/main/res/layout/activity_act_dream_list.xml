@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_above="@+id/adView3"
+        android:layout_above="@+id/bannerplacer"
         android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -82,14 +82,22 @@
             android:textColor="#8391A4"
             android:textSize="@dimen/_10ssp" />
     </LinearLayout>
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView3"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner3">
-    </com.google.android.gms.ads.AdView>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bannerplacer">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView3"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner3">
+        </com.google.android.gms.ads.AdView>
+
+    </FrameLayout>
 
 </RelativeLayout>

@@ -10,5 +10,5 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:background="@color/global"
-        android:src="@drawable/splash_gif" />
+        android:src="@drawable/splashgif" />
 </androidx.constraintlayout.widget.ConstraintLayout>

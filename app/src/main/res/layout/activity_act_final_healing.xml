@@ -42,11 +42,14 @@
     </RelativeLayout>
 
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/bannerplacer"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_below="@+id/header"
             android:layout_height="match_parent"
-            android:layout_above="@+id/adView3"
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
@@ -116,7 +119,7 @@
                 android:thumbTint="@color/white"
                 android:progressTint="@color/global"
                 android:progressBackgroundTint="@color/white"
-                 />
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -201,14 +204,24 @@
             </RelativeLayout>
         </LinearLayout>
 
+    </ScrollView>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView3"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner3">
-    </com.google.android.gms.ads.AdView>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bannerplacer">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView3"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner3">
+        </com.google.android.gms.ads.AdView>
+
+    </FrameLayout>
 </RelativeLayout>

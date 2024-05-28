@@ -12,7 +12,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_above="@+id/adView3"
+        android:layout_above="@+id/bannerplacer"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
@@ -140,16 +140,23 @@
     </androidx.core.widget.NestedScrollView>
 
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView3"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginVertical="@dimen/_5sdp"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner3">
-    </com.google.android.gms.ads.AdView>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bannerplacer">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView3"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner3">
+        </com.google.android.gms.ads.AdView>
+
+    </FrameLayout>
 
 
 
